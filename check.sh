@@ -46,6 +46,7 @@ CLANG_FORMAT_VERSION="$1"
 CHECK_PATH="$2"
 FALLBACK_STYLE="$3"
 EXCLUDE_REGEX="$4" #not used
+UPSTREAM="$5"
 
 # Set the regex to an empty string regex if nothing was provided
 if [ -z "$EXCLUDE_REGEX" ]; then
@@ -71,7 +72,9 @@ exit_code=0
 
 
 
-echo "Start checking"
+echo "Start checking $5"
+git remote add upstream $UPSTREAM
+git fetch upstream
 src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
 echo "files $src_files"
 
