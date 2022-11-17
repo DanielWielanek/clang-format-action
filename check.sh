@@ -44,7 +44,7 @@ format_diff() {
 CLANG_FORMAT_VERSION="$1"
 CHECK_PATH="$2"
 FALLBACK_STYLE="$3"
-EXCLUDE_REGEX="$4"
+EXCLUDE_REGEX="$4" #not used
 
 # Set the regex to an empty string regex if nothing was provided
 if [ -z "$EXCLUDE_REGEX" ]; then
@@ -67,12 +67,12 @@ exit_code=0
 #   c, C, cpp, cc, c++, cxx
 #   ino, pde
 #   proto
-src_files=$(find "$CHECK_PATH" -name .git -prune -o -regextype posix-egrep -regex '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$))|(ino|pde)|(proto))$' -print)
+src_files=$(git diff --name-only `git merge-base origin/master HEAD`)
 
 # check formatting in each source file
 for file in $src_files; do
-	# Only check formatting if the path doesn't match the regex
-	if ! [[ ${file} =~ $EXCLUDE_REGEX ]]; then
+	# Only check formatting if the path  match the regex
+	if  [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$))|(ino|pde)|(proto))$' ]]; then
 		format_diff "${file}"
 	fi
 done
