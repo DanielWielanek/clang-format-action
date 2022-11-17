@@ -67,7 +67,7 @@ exit_code=0
 #   c, C, cpp, cc, c++, cxx
 #   ino, pde
 #   proto
-src_files=$(git diff --name-only `git merge-base origin/master HEAD`)
+src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
 
 # check formatting in each source file
 for file in $src_files; do
