@@ -73,8 +73,10 @@ exit_code=0
 
 
 echo "Start checking $5"
-git remote add upstream $UPSTREAM
-git fetch upstream
+if ! [ -z "$var" ] ; then
+	git remote add upstream $UPSTREAM
+	git fetch upstream
+fi
 src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
 echo "files $src_files"
 
