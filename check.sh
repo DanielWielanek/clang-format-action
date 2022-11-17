@@ -18,6 +18,7 @@
 # Accepts a filepath argument. The filepath passed to this function must point
 # to a C/C++/Protobuf file.
 format_diff() {
+	echo "checking $1"
 	local filepath="$1"
 	# Invoke clang-format with dry run and formatting error output
 	if [[ $CLANG_FORMAT_VERSION -gt "9" ]]; then
