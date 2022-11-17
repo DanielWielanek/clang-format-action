@@ -68,6 +68,10 @@ exit_code=0
 #   c, C, cpp, cc, c++, cxx
 #   ino, pde
 #   proto
+
+
+
+echo "Start checking"
 src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
 
 # check formatting in each source file
