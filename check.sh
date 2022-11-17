@@ -73,6 +73,7 @@ exit_code=0
 
 echo "Start checking"
 src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
+echo "files $src_files}"
 
 # check formatting in each source file
 for file in $src_files; do
