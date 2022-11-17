@@ -22,6 +22,10 @@ inputs:
     description: 'The fallback style for clang-format if no .clang-format file exists in your repository.'
     required: false
     default: 'llvm'
+  upstream:
+    description: 'The upstream repository'
+    required: false
+    default: ''
 
 runs:
   using: "composite"
