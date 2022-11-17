@@ -73,8 +73,8 @@ src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
 # check formatting in each source file
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
-	echo "test L1 $file"
-	if ! [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$))|(ino|pde)|(proto))$' ]]; then
+	echo "test $file"
+	if  ! [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
 		format_diff "${file}"
 	fi
 done
