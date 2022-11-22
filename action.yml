@@ -27,7 +27,7 @@ inputs:
     required: false
     default: ''
   upstream-branch:
-    description: "The upstream branch'
+    description: 'The upstream branch'
     required: false
     default: 'upstream/main'
 
