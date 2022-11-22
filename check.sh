@@ -80,6 +80,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 fi
 echo "git merge-base $UPSTREAM_BRANCH HEAD"
 src_files=$(git diff --name-only $(git merge-base $UPSTREAM_BRANCH HEAD))
+echo "ff $(git diff --name-only $(git merge-base $UPSTREAM_BRANCH HEAD))"
 echo "files_list $src_files"
 
 # check formatting in each source file
