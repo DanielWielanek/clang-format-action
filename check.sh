@@ -80,6 +80,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 fi
 command="git diff --name-only `git merge-base "$UPSTREAM_PATH" HEAD`"
 
+echo "COMMAND $command"
 
 src_files=$($command)
 echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
