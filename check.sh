@@ -78,6 +78,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
+echo "git merge-base $UPSTREAM_BRANCH HEAD"
 src_files=$(git diff --name-only $(git merge-base $UPSTREAM_BRANCH HEAD))
 echo "files $src_files"
 
