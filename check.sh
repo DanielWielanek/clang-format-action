@@ -78,7 +78,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
-hash=`git merge-base "$UPSTREAM_BRANCH" HEAD\`
+hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
 command="git diff --name-only $hash"
 echo "COMMAND $command"
 
