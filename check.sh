@@ -73,7 +73,7 @@ exit_code=0
 
 
 echo "Start checking $5"
-if ! [ -z "$var" ] ; then
+if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
