@@ -77,7 +77,7 @@ if ! [ -z "$var" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
-src_files=$(git diff --name-only `git merge-base origin/main HEAD`)
+src_files=$(git diff --name-only `git merge-base upstream/main HEAD`)
 echo "files $src_files"
 
 # check formatting in each source file
