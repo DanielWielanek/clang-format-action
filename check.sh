@@ -78,10 +78,13 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
-echo "git merge-base $UPSTREAM_BRANCH HEAD"
-src_files=$(git diff --name-only $(git merge-base $UPSTREAM_BRANCH HEAD))
+command="git diff --name-only `git merge-base "$UPSTREAM_PATH" HEAD`"
+
+
+src_files=$($command)
 echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
 echo "files_list $src_files"
+git diff --name-only 'git merge-base upstream/main HEAD'
 
 # check formatting in each source file
 for file in $src_files; do
