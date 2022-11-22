@@ -79,6 +79,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git fetch upstream
 fi
 hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
+echo "UPSTREAM $UPSTREAM_BRANCH"
 command="git diff --name-only $hash"
 echo "COMMAND $command"
 
