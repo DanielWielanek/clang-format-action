@@ -47,6 +47,7 @@ CHECK_PATH="$2"
 FALLBACK_STYLE="$3"
 EXCLUDE_REGEX="$4" #not used
 UPSTREAM_PATH="$5"
+UPSTREAM_BRANCH="$6"
 
 # Set the regex to an empty string regex if nothing was provided
 if [ -z "$EXCLUDE_REGEX" ]; then
@@ -77,7 +78,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
-src_files=$(git diff --name-only `git merge-base upstream/main HEAD`)
+src_files=$(git diff --name-only `git merge-base `$UPSTREAM_BRANCH` HEAD`)
 echo "files $src_files"
 
 # check formatting in each source file
