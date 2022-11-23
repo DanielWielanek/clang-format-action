@@ -83,7 +83,7 @@ fi
 hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
 temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
-val2=eval $command
+val2=eval $temp_command
 echo "eval $val2"
 echo "UPSTREAM $UPSTREAM_BRANCH"
 command="git diff --name-only $hash"
