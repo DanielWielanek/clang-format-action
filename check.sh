@@ -80,7 +80,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git fetch upstream
 fi
 #`git merge-base "$UPSTREAM_BRANCH" HEAD`
-#hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
+hash=`git merge-base upstream/main HEAD`
 #hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
@@ -94,8 +94,8 @@ fi
 #echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
 #echo "files_list $src_files"
 #git diff --name-only `git merge-base upstream/main HEAD`
-src_files=$(git diff --name-only `git merge-base upstream/main HEAD`)
-echo "Files $src_files"
+src_files=$(git diff --name-only #hash)
+echo "Files $src_files $hash"
 # check formatting in each source file
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
