@@ -80,12 +80,12 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git fetch upstream
 fi
 `git merge-base "$UPSTREAM_BRANCH" HEAD`
-echo "dolar $?"
 hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
+hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
 val2=eval $temp_command
-echo "eval $val2"
+echo "eval $val2 $hash $hash2"
 echo "UPSTREAM $UPSTREAM_BRANCH"
 command="git diff --name-only $hash"
 echo "COMMAND $command"
