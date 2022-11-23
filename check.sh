@@ -81,6 +81,10 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 fi
 `git merge-base "$UPSTREAM_BRANCH" HEAD`
 hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
+temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
+
+val2=eval $command
+echo "eval $val2"
 echo "UPSTREAM $UPSTREAM_BRANCH"
 command="git diff --name-only $hash"
 echo "COMMAND $command"
