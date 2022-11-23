@@ -94,7 +94,7 @@ hash=`git merge-base upstream/main HEAD`
 #echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
 #echo "files_list $src_files"
 #git diff --name-only `git merge-base upstream/main HEAD`
-src_files=$(git diff --name-only #hash)
+src_files=$(git diff --name-only $hash)
 echo "Files $src_files $hash"
 # check formatting in each source file
 for file in $src_files; do
