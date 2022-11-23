@@ -79,22 +79,22 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	git remote add upstream $UPSTREAM_PATH
 	git fetch upstream
 fi
-`git merge-base "$UPSTREAM_BRANCH" HEAD`
-hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
-hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
-temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
+#`git merge-base "$UPSTREAM_BRANCH" HEAD`
+#hash=`git merge-base "$UPSTREAM_BRANCH" HEAD`
+#hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
+#temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
-val2=eval $temp_command
-echo "eval $val2 $hash $hash2"
-echo "UPSTREAM $UPSTREAM_BRANCH"
-command="git diff --name-only $hash"
-echo "COMMAND $command"
+#val2=eval $temp_command
+#echo "eval $val2 $hash $hash2"
+#echo "UPSTREAM $UPSTREAM_BRANCH"
+#command="git diff --name-only $hash"
+#echo "COMMAND $command"
 
-src_files=$($command)
-echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
-echo "files_list $src_files"
+#src_files=$($command)
+#echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
+#echo "files_list $src_files"
 git diff --name-only 'git merge-base upstream/main HEAD'
-
+src_files=git dif --name-only `git merge base upstream/main HEAD`
 # check formatting in each source file
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
