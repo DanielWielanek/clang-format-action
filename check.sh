@@ -88,6 +88,7 @@ echo "hashes $hash $hash2 $hash3 $hash4"
 `git merge-base -a upstream/main HEAD`
 echo "dol $?"
 echo "----"
+git remote show origin
 #val2=eval $temp_command
 #echo "eval $val2 $hash $hash2"
 #echo "UPSTREAM $UPSTREAM_BRANCH"
