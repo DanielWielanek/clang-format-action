@@ -75,7 +75,7 @@ exit_code=0
 if ! [ -z "$UPSTREAM_PATH" ] ; then
 	echo "check upstream $UPSTREAM_PATH"
 	git remote add upstream $UPSTREAM_PATH
-	git fetch upstream
+	git fetch upstream --depth=100
 	ls -lh
 fi
 #`git merge-base "$UPSTREAM_BRANCH" HEAD`
