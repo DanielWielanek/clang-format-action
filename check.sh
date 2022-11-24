@@ -84,7 +84,7 @@ hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 hash3=$(git merge-base upstream/main HEAD)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 echo "hashes $hash $hash2 $hash3"
-`git merge-base upstream/main HEAD`
+`git merge-base -a upstream/main HEAD`
 echo "----"
 #val2=eval $temp_command
 #echo "eval $val2 $hash $hash2"
