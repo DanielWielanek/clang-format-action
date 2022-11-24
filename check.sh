@@ -85,7 +85,7 @@ hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 hash3=$(git merge-base upstream/main HEAD)
 hash4=$(git merge-base --fork-point origin/main)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
-echo "hashes $hash $hash2 $hash3 $hash4"
+echo "hashes  $GITHUB_REF > $GITHUB_BASE_REF >  "
 `git merge-base -a upstream/main HEAD`
 echo "dol $?"
 echo "----"
