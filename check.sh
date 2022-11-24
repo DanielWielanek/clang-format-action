@@ -48,6 +48,7 @@ FALLBACK_STYLE="$3"
 EXCLUDE_REGEX="$4" #not used
 UPSTREAM_PATH="$5"
 UPSTREAM_BRANCH="$6"
+echo "files list $7" 
 
 # Set the regex to an empty string regex if nothing was provided
 if [ -z "$EXCLUDE_REGEX" ]; then
