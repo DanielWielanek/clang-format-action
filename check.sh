@@ -85,10 +85,11 @@ hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 hash3=$(git merge-base upstream/main HEAD)
 hash4=$(git merge-base --fork-point origin/main)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
-echo "hashes  $GITHUB_REF > $GITHUB_BASE_REF >  "
+
 `git merge-base -a upstream/main HEAD`
+
 echo "dol $?"
-echo "----"
+echo "---- $hash - $hash2 - $hash3 - $hash4"
 git remote show origin
 #val2=eval $temp_command
 #echo "eval $val2 $hash $hash2"
