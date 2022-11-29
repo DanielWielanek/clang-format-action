@@ -104,7 +104,7 @@ echo "Files $src_files $hash"
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
 	echo "test $file"
-	if  ! [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
+	if   [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
 		format_diff "${file}"
 	fi
 done
