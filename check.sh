@@ -80,13 +80,13 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 	ls -lh
 fi
 #`git merge-base "$UPSTREAM_BRANCH" HEAD`
-hash2=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
+hash=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
 `git merge-base -a upstream/main HEAD`
 
 echo "dol $?"
-echo "---- $hash2"
+echo "---- $hash"
 git remote show origin
 #val2=eval $temp_command
 #echo "eval $val2 $hash $hash2"
