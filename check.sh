@@ -106,6 +106,7 @@ for file in $src_files; do
 	echo "test $file"
 	if   [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
 		format_diff "${file}"
+		echo "real test $file"
 	fi
 done
 
