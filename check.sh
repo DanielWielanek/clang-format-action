@@ -86,9 +86,8 @@ src_files=$(git diff --name-only $hash)
 pattern="^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$"
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
-	echo "test $file"
 	if   [[ ${file} =~ $pattern ]]; then
-		echo "real test $file"
+		echo "test $file"
 		format_diff "${file}"
 	fi
 done
