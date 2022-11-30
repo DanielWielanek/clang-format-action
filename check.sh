@@ -48,7 +48,6 @@ FALLBACK_STYLE="$3"
 EXCLUDE_REGEX="$4" #not used
 UPSTREAM_PATH="$5"
 UPSTREAM_BRANCH="$6"
-echo "files list $7" 
 
 # Set the regex to an empty string regex if nothing was provided
 if [ -z "$EXCLUDE_REGEX" ]; then
@@ -81,20 +80,7 @@ if ! [ -z "$UPSTREAM_PATH" ] ; then
 fi
 #`git merge-base "$UPSTREAM_BRANCH" HEAD`
 hash=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
-#temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
-echo "---- $hash"
-git remote show origin
-#val2=eval $temp_command
-#echo "eval $val2 $hash $hash2"
-#echo "UPSTREAM $UPSTREAM_BRANCH"
-#command="git diff --name-only $hash"
-#echo "COMMAND $command"
-
-#src_files=$($command)
-#echo "ff $(git diff --name-only $(git merge-base upstream/main HEAD))"
-#echo "files_list $src_files"
-#git diff --name-only `git merge-base upstream/main HEAD`
 src_files=$(git diff --name-only $hash)
 # check formatting in each source file
 pattern="^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$"
