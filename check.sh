@@ -97,14 +97,15 @@ git remote show origin
 #git diff --name-only `git merge-base upstream/main HEAD`
 src_files=$(git diff --name-only $hash)
 # check formatting in each source file
+pattern="^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$"
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
 	echo "test $file"
-	if   [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
+	if   [[ ${file} =~ $pattern ]]; then
 		echo "real test $file"
 		format_diff "${file}"
 	fi
-	if  ! [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
+	if  ! [[ ${file} =~ $pattern ]]; then
 		echo "imaginary test $file"
 		format_diff "${file}"
 	fi
