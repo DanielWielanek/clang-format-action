@@ -87,7 +87,6 @@ pattern="^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$"
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
 	if   [[ ${file} =~ $pattern ]]; then
-		echo "test $file"
 		format_diff "${file}"
 	fi
 done
