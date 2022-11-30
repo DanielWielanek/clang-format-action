@@ -105,10 +105,6 @@ for file in $src_files; do
 		echo "real test $file"
 		format_diff "${file}"
 	fi
-	if  ! [[ ${file} =~ $pattern ]]; then
-		echo "imaginary test $file"
-		format_diff "${file}"
-	fi
 done
 
 # global exit code is flipped to nonzero if any invocation of `format_diff` has
