@@ -83,9 +83,6 @@ fi
 hash=$(git merge-base "$UPSTREAM_BRANCH" HEAD)
 #temp_command="git merge-base $UPSTREAM_BRANCH HEAD"
 
-`git merge-base -a upstream/main HEAD`
-
-echo "dol $?"
 echo "---- $hash"
 git remote show origin
 #val2=eval $temp_command
@@ -99,14 +96,13 @@ git remote show origin
 #echo "files_list $src_files"
 #git diff --name-only `git merge-base upstream/main HEAD`
 src_files=$(git diff --name-only $hash)
-echo "Files $src_files $hash"
 # check formatting in each source file
 for file in $src_files; do
 	# Only check formatting if the path  match the regex
 	echo "test $file"
 	if   [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
-		format_diff "${file}"
 		echo "real test $file"
+		format_diff "${file}"
 	fi
 done
 
