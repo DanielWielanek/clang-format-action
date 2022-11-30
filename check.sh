@@ -104,6 +104,10 @@ for file in $src_files; do
 		echo "real test $file"
 		format_diff "${file}"
 	fi
+	if  ! [[ ${file} =~ '^.*\.((((c|C)(c|pp|xx|\+\+)?$)|((h|H)h?(pp|xx|\+\+)?$)))$' ]]; then
+		echo "imaginary test $file"
+		format_diff "${file}"
+	fi
 done
 
 # global exit code is flipped to nonzero if any invocation of `format_diff` has
